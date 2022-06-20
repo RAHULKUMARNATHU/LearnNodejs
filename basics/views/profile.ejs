@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>This is Profile Page </h1> 
+   
+    
+    <label>User Name : <%= user.name%></label><br>
+    <label>User Email : <%= user.email%></label><br>
+    <label>User City  : <%= user.city%></label><br>
+    <ul>
+        <% user.skills.map((item)=>{%>
+            <li><%=item %></li>
+        <%})%>
+    </ul>
+</body>
+</html>
