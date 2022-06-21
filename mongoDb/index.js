@@ -1,24 +1,36 @@
-const { MongoClient } = require("mongodb");
-const url = "mongodb://localhost:27017";
 const express = require("express");
-
+// importing connected db 
+const dbConnect = require('./mongodb')
+// making executable to express
 const app = express();
-const database = "e-comm";
-const client = new MongoClient(url);
 
-async function getData() {
-  let result = await client.connect();
-  let db = result.db(database);
-  let collection = db.collection("products");
-  let response = await collection.find({}).toArray();
-  console.log(response);
-}
+// console.warn(dbConnect());
 
-getData();
+// using connected db to find data
+// dbConnect().then((res) => {
+//   res
+//     .find({})
+//     .toArray()
+//     .then((data) => {
+//       console.log(data);
+//     });
+// });
 
 
-app.get('',(req,res) => {
-    res.send(`<h1> This is Home Page</h1>`)
-})
+// using connected db to find data
+const main = async () => {
+  let data = await dbConnect();
+  data = await data.find().toArray();
+  console.log(data);
+
+  // console.log("main called")
+};
+
+main();
+
+
+app.get("", (req, res) => {
+  res.send(`<h1> This is Home Page</h1>`);
+});
 
 app.listen(8000);
