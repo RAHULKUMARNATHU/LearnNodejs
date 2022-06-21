@@ -9,7 +9,7 @@ const app = express();
 // using connected db to find data
 // dbConnect().then((res) => {
 //   res
-//     .find({})
+//     .find({name:''note 6 pro ' })
 //     .toArray()
 //     .then((data) => {
 //       console.log(data);
