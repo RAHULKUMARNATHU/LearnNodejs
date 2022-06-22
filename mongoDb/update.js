@@ -1,7 +1,7 @@
 const dbConnect = require('./mongodb');
 
 // update collection using updateOne
-const update = async() =>{
+const updateData = async() =>{
 let db = await dbConnect();
 // update only 1st occurance
 let result = await db.updateOne(
@@ -10,4 +10,4 @@ let result = await db.updateOne(
 console.warn(result)
 }
 
-update();
+updateData();

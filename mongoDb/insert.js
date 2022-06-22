@@ -1,6 +1,6 @@
 const dbConnect = require("./mongodb");
 
-const insert = async () => {
+const insertData = async () => {
   const db = await dbConnect();
   const result = await db.insertMany([
     {
@@ -22,4 +22,4 @@ const insert = async () => {
   }
 };
 
-insert();
+insertData();
