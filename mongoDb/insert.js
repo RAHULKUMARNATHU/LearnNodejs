@@ -14,7 +14,13 @@ const insertData = async () => {
       brand: "onePlus",
       price: 350,
       category: "mobile",
-    }
+    },
+    {
+        name: " A 50",
+        brand: "Samsung",
+        price: 350,
+        category: "mobile",
+      }
   ]);
 
   if (result.acknowledged) {

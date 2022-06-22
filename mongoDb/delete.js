@@ -3,7 +3,7 @@ const dbConnect = require("./mongodb");
 const deleteDb = async () => {
   let db = await dbConnect();
   let result = await db.deleteMany(
-    {name : 'note 5'}
+    {name : 'realme 8'}
     );
 
     if(result.acknowledged){
