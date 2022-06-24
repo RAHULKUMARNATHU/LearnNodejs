@@ -26,4 +26,19 @@ app.post('/' , async (req,res) => {
 })
 
 
+// API for Update()
+
+
+app.put('/:name', async(req,res) => {
+    let data = await dbConnect();
+    let result = data.update(
+        {name : req.params.name} , //match data from params
+        { $set : req.body } //update data after getting from body
+      
+    )
+    
+    res.send({result :"updated"})
+})
+
+
 app.listen(8000);
