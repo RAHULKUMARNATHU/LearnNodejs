@@ -7,6 +7,7 @@ const app = express();
 //parse data || MiddleWare converts data into object form
 app.use(express.json());
 
+// post data in database
 app.post("/create", async (req, res) => {
 
     let data = Product(req.body)
@@ -14,5 +15,10 @@ app.post("/create", async (req, res) => {
   res.send(result);
 });
 
+// get data from database
 
+app.get('/list' , async(req,res)=>{
+    let data = await Product.find();
+    res.send(data)
+})
 app.listen(5000);
