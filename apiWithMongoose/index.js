@@ -9,16 +9,30 @@ app.use(express.json());
 
 // post data in database
 app.post("/create", async (req, res) => {
-
-    let data = Product(req.body)
-    const result = await data.save();
+  // here Product is model with Schemas
+  let data = Product(req.body);
+  const result = await data.save();
   res.send(result);
 });
 
 // get data from database
 
-app.get('/list' , async(req,res)=>{
-    let data = await Product.find();
-    res.send(data)
-})
+app.get("/list", async (req, res) => {
+  let data = await Product.find();
+  res.send(data);
+});
+
+// delete data from database
+app.delete("/delete/:_id", async (req, res) => {
+  const data = await Product.deleteOne(req.params);
+  res.send(data);
+});
+
+// update data to database
+app.put("/update/:_id", async (req, res) => {
+  let data = await Product.updateOne(req.params, { $set: req.body });
+
+  res.send(data);
+});
+
 app.listen(5000);
