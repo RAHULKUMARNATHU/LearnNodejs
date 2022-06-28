@@ -27,10 +27,12 @@ body {
 
 #submit-button{
 
-  height: 4vh;
-  width:10vw;
+  height: 30px;
+  width:70px;
   display: flex;
-  margin: 2vh 14vw ;
+ justify-content: center;
+
+  margin: 10px 50px  5px ;
 }
 
 

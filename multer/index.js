@@ -4,6 +4,8 @@ const multer = require("multer");
 
 const app = express();
 
+const port = 8000;
+
 // set view engine:-like here :- ejs
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -34,4 +36,11 @@ app.get("/", (req, res) => {
 });
 
 // listening app at port 5000
-app.listen(5000);
+app.listen(port , (err) =>{
+if(err){
+console.log(`Error While connecting to server ${port}`);
+return;
+}
+
+console.log(`Happily Server is Running on PORT ${port} `)
+});
